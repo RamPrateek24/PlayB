@@ -20,7 +20,7 @@ model User {
   streams   Stream[]  @relation("user")
   upvotes   Upvote[]
   added     Stream[]  @relation("addedBy")
-  
+  name      String?
 }
 
 model Stream {

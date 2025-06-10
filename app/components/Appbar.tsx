@@ -16,6 +16,6 @@ export function Appbar(){
            </div>
            <div>
            {session.data?.user &&<Button className="bg-orange-500 text-white hover:bg-orange-400 transition-colors mr-5" style={{ marginTop: '0.35cm' }} onClick={() => signOut()}>Logout</Button>}
-           {!session.data?.user &&<Button className="bg-orange-500 text-black hover:bg-orange-400 transition-colors mr-5" style={{ marginTop: '0.35cm' }} onClick={() => signIn()}>Signin</Button>}
+           {!session.data?.user &&<Button className="bg-orange-500 text-black hover:bg-orange-400 transition-colors mr-5" style={{ marginTop: '0.35cm' }} onClick={() => signIn()}>Sign In</Button>}
            </div>
     </div>}

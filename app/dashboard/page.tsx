@@ -1,13 +1,25 @@
+
 "use client"
 import { useSession } from 'next-auth/react'
 import StreamView from '@/app/components/StreamView'
-import { Redirect } from '../components/Redirect';
+import useRedirect from '../hooks/useRedirect';
+import { useRouter } from 'next/navigation';
 
 
 export default function Component() {
-   const creatorId = "41b2b41f-66ef-49a7-9fdc-41dc59c582ec"
+    const session = useSession();
+    const redirect = useRedirect;
+    const router = useRouter();
 
-    return <StreamView creatorId={creatorId} playVideo={true} />;
+    if (session.status === "loading") {
+        return <div>Loading...</div>;
+    }
+    if (!session.data?.user.id) {
+        router.push("/");
+        return <h1>Please Log in....</h1>;
+    }
+
+    return <StreamView creatorId={session.data.user.id} playVideo={true} />;
 }
 
 export const dynamic = 'auto'
