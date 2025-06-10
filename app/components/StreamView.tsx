@@ -9,7 +9,7 @@ import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { Appbar } from '../components/Appbar'
 import LiteYouTubeEmbed from 'react-lite-youtube-embed'
-import 'react-lite-youtube-embed/dist/LiteYoutubeEmbed.css'
+import 'react-lite-youtube-embed/dist/index.css';
 import { YT_REGEX } from '../lib/utils'
 //@ts-ignore
 import YouTubePlayer from 'youtube-player';
