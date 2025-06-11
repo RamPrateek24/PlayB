@@ -147,14 +147,20 @@ export async function GET(req: NextRequest){
     const isCreator = user.id === creatorId;
 
     return NextResponse.json({
-        streams: streams.map(({_count, ...rest}) => ({
+        streams: streams.map(({ 
+            _count, 
+            ...rest 
+        }: { 
+            _count: { upvotes: number }; 
+            upvotes: any[];               
+            id: string;                  
+            title: string;
+           
+        }) => ({
             ...rest,
             upvotes: _count.upvotes,
-            haveUpvoted: rest.upvotes.length ? true : false
-        })),
-        activeStream,
-        creatorId,
-        isCreator
-    });
+            haveUpvoted: rest.upvotes.length > 0  
+        }))
+        });
 }
 
